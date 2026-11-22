@@ -1,0 +1,373 @@
+:root {
+  --navy: #10263B; --navy-2: #173453; --teal: #0F8C8C; --teal-soft: #E4F2F0;
+  --amber: #E2A63B; --amber-soft: #FBF0DC; --rust: #B14D33; --rust-soft: #F7E7E1;
+  --sand: #F6EFE3; --card: #FFFFFF; --ink: #16232E; --muted: #66788A; --line: #E7DFD0;
+}
+
+*{box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--sand); 
+    color: var(--ink);
+    font-family: 'Inter', system-ui, apple-system, sans-serif;
+    display: flex; 
+    min-height: 100vh;
+}
+
+h1,h2,h3,.brand {
+    font-family: 'Poppins', system-ui, sans-serif;
+}
+
+nav.side {
+    width: 230px; 
+    flex-shrink: 0; 
+    background: var(--navy); 
+    color: #DCE6EE;
+    padding: 28px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 32px;
+    position: sticky; 
+    top: 0; 
+    height: 100vh;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 44px;
+}
+
+.brand-logo {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: 42px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 1px rgba(237, 241, 245, 0.75)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+.brand .txt small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: #8FA6BA;
+    margin-top: 2px;
+    font-family: 'Inter';
+}
+
+.brand svg {
+    flex-shrink: 0;
+}
+
+.navlist {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.navlist a {
+    color: #AFC0CE;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background .2s, color .2s;
+}
+
+.navlist a:hover {
+    background: var(--teal);
+    color: #FFF;
+}
+
+.side-foot {
+    margin-top: auto;
+    font-size: 12px;
+    color: #6E8397;
+    line-height: 1.5;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 40px 56px;
+    max-width: 1180px;
+}
+
+.section-block {
+    margin-bottom: 44px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+}
+
+.section-block:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+header.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+header.top h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+header.top .meta {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.frota-name {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kpi {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+}
+
+.kpi .label {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.kpi .value {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 6px;
+    font-family: 'Poppins';
+}
+
+.kpi .delta {
+    font-size: 12.5px;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.delta .up {
+    color: var(--teal);
+}
+
+.delta.dow {
+    color: var(--rust);
+}
+
+.panels {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 16px;
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 24px;
+}
+
+.panel.wide {
+    grid-column: 1 / -1;
+}
+
+.panel h2 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.panel .sub {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 16px; 
+}
+
+svg.chart {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.grid-line {
+    stroke: var(--line);
+    stroke-width: 1;
+}
+
+.trend-line {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 2.5;
+}
+
+.trend-fill {
+    fill: url(#tealFade);
+}
+
+.trend-dot {
+    fill: var(--teal);
+}
+
+.axis-label {
+    font-size: 10.5px;
+    fill: var(--muted);
+    font-family: 'Inter';
+}
+
+.bench-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 4px;
+}
+
+.bench-item .row-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    margin-bottom: 6px;
+}
+
+.bench-item .cat {
+    font-weight: 600;
+}
+
+.bench-item .figures {
+    color: var(--muted);
+}
+
+.bar-track {
+    position: relative;
+    height: 8px;
+    background: var(--line);
+    border-radius: 5px;
+    margin-bottom: 6px;
+}
+
+.bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 5px;
+    background: var(--teal);
+}
+
+.bar-mark {
+    position: absolute;
+    top: -3px;
+    width: 2px;
+    height: 14px;
+    background: var(--rust);
+}
+
+.flow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.wire-card {
+    border: 1.5px dashed var(--teal);
+}
+
+.badge-step {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--teal-soft);
+    color: var(--teal);
+    margin-bottom: 10px;
+}
+
+.flow-list {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13.5px;
+    line-height: 1.45;
+}
+
+footer.note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    body {
+        flex-direction: column;
+    }
+
+    nav.side {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        padding: 16px 20px;
+        flex-wrap: wrap;
+    }
+
+    .side-foot {
+        display: none;
+    }
+
+    .navlist {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    main {
+        padding: 24px 18px 48px;
+    }
+
+    .kpis {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .panels, .flow-grid {
+        grid-template-columns: 1fr;
+    }
+}
