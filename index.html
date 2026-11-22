@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>KATU - Visão CFO &amp; Telemetria OBD-II</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><polygon points="6,32 22,12 31,12 15,32 31,52 22,52" fill="%2310263B"/><polygon points="20,32 33,16 41,16 28,32 41,48 33,48" fill="%23E2A63B"/><polygon points="33,32 43,20 50,20 40,32 50,44 43,44" fill="%230F8C8C"/></svg>'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="side">
+    <div class="brand">
+      <img src="src/logo-KATU.png" alt="Logo KATU" class="brand-logo">
+    </div>
+
+    <div class="navlist">
+      <a href="#cfo">1. Visão CFO</a>
+      <a href="#telemetria">2. Coleta Real OBD-II</a>
+    </div>
+
+    <div class="side-foot">powered by<br><strong style="color:#AFC0CE">UtiRastrum</strong></div>
+  </nav>
+
+  <main>
+
+    <section id="cfo" class="section-block">
+      <header class="top">
+        <div>
+          <h1>Visão Executiva</h1>
+          <div class="frota-name">Frota Sul Transportes · 42 veículos</div>
+        </div>
+        <div class="meta">Calculadora de Frota</div>
+      </header>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="label">Custo Total da Frota</div>
+          <div class="value">R$ 187.400</div>
+          <div class="delta down">^ 6,2% vs. Mês Anterior</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Custo por Km rodado</div>
+          <div class="value">R$ 1,84</div>
+          <div class="delta down">^ 0,11 vs. Benchmark do Setor</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Economia Potencial</div>
+          <div class="value">R$ 32.400<span style="font-size:14px;color:var(--muted);font-weight:500">/ano</span></div>
+          <div class="delta up">3 Oportunidades Identificadas</div>
+        </div>
+        <div class="kpi">
+          <div class="label">ROI Projetado das Ações</div>
+          <div class="value">4,3x</div>
+          <div class="delta up">Payback em ~3 meses</div>
+        </div>
+      </div>
+
+      <div class="panels">
+        <div class="panel">
+          <h2>Evolução do Custo Total</h2>
+          <div class="sub">Últimos 6 meses, em R$ mil</div>
+          <svg class="chart" viewBox="0 0 520 200">
+            <defs>
+              <linearGradient id="tealFade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0F8C8C" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#0F8C8C" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <line class="grid-line" x1="0" y1="20" x2="520" y2="20"/>
+            <line class="grid-line" x1="0" y1="80" x2="520" y2="80"/>
+            <line class="grid-line" x1="0" y1="140" x2="520" y2="140"/>
+
+            <polygon class="trend-fill" points="10,140 96,130 182,150 268,110 354,100 440,60 510,64 510,170 10,170"/>
+            <polyline class="trend-line" points="10,140 96,130 182,150 268,110 354,100 440,60 510,64"/>
+
+            <circle class="trend-dot" cx="10" cy="140" r="3"/>
+            <text class="axis-label" x="2" y="132">165k</text>
+
+            <circle class="trend-dot" cx="96" cy="130" r="3"/>
+            <text class="axis-label" x="87" y="122">167k</text>
+
+            <circle class="trend-dot" cx="182" cy="150" r="3"/>
+            <text class="axis-label" x="173" y="165">162k</text>
+
+            <circle class="trend-dot" cx="268" cy="110" r="3"/>
+            <text class="axis-label" x="259" y="102">173k</text>
+
+            <circle class="trend-dot" cx="354" cy="100" r="3"/>
+            <text class="axis-label" x="345" y="92">176k</text>
+
+            <circle class="trend-dot" cx="440" cy="60" r="3"/>
+            <text class="axis-label" x="430" y="51">188k</text>
+
+            <circle class="trend-dot" cx="510" cy="64" r="4"/>
+            <text class="axis-label" x="492" y="92">187,4k</text>
+            
+            <text class="axis-label" x="4" y="192">Abril</text>
+            <text class="axis-label" x="90" y="192">Maio</text>
+            <text class="axis-label" x="176" y="192">Junho</text>
+            <text class="axis-label" x="262" y="192">Julho</text>
+            <text class="axis-label" x="348" y="192">Agosto</text>
+            <text class="axis-label" x="434" y="192">Setembro</text>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <h2>Comparação com Benchmark</h2>
+          <div class="sub">Sua frota vs. Referência do Setor (Marca Vermelha)</div>
+          <div class="bench-row">
+            <div class="bench-item">
+              <div class="row-top">
+                <span class="cat">Combustível</span>
+                <span class="figures">R$ 0,79/km · ref. R$ 0,71</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:88%"></div>
+                <div class="bar-mark" style="left:76%"></div>
+              </div>
+            </div>
+            <div class="bench-item">
+              <div class="row-top">
+                <span class="cat">Manutenção</span>
+                <span class="figures">R$ 0,52/km · ref. R$ 0,48</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:70%"></div>
+                <div class="bar-mark" style="left:64%"></div>
+              </div>
+            </div>
+            <div class="bench-item">
+              <div class="row-top">
+                <span class="cat">Multas</span>
+                <span class="figures">R$ 0,22/km · ref. R$ 0,09</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:96%; background:var(--rust)"></div>
+                <div class="bar-mark" style="left:22%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="telemetria" class="section-block">
+      <header class="top">
+        <div>
+          <h1>Ingestão de Telemetria Real (OBD-II)</h1>
+          <div class="frota-name">Amostra Processada: <strong data-obd="arquivo">2026-11-09 10-40-15.csv</strong> (<span data-obd="duracao_min">9.75</span> min)</div>
+        </div>
+        <div class="meta">Coleta OBD-II + Sem Parar ao Relatório CFO</div>
+      </header>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="label">Distância do Trecho</div>
+          <div class="value"><span data-obd="distancia_km">1.01</span> km</div>
+          <div class="delta up">Velocidade Máxima: <span data-obd="velocidade_max_kmh">49</span> km/h</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Combustível Consumido</div>
+          <div class="value"><span data-obd="combustivel_usado_l">0.30</span> L</div>
+          <div class="delta down">Média: <span data-obd="rendimento_km_l">3.33</span> km/L (<span data-obd="combustivel_tipo">Etanol 100%</span>)</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Tempo Parado (Marcha Lenta)</div>
+          <div class="value"><span data-obd="marcha_lenta_pct">63.8</span>%</div>
+          <div class="delta down">Consumo Parado: <span data-obd="consumo_parado_lh_mediana">1.46</span> L/h</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Saúde do Motor (ECU)</div>
+          <div class="value"><span data-obd="rpm_medio">1.295</span> rpm</div>
+          <div class="delta up">Temperatura do Motor: <span data-obd="temp_arrefecimento_c">89,8</span> °C</div>
+        </div>
+      </div>
+
+      <div class="flow-grid">
+        <div class="panel wire-card">
+          <span class="badge-step">Etapa 1 · Coleta na Ponta</span>
+          <h2>Telemetria OBD-II + Sem Parar</h2>
+          <div class="sub">Leituras Reais de Telemetria e Operações</div>
+          <ul class="flow-list">
+            <li><strong>Telemetria OBD-II:</strong> Registra Distância, Velocidade, RPM e Tempo de Marcha Lenta.</li>
+            <li><strong>Sem Parar Empresas:</strong> Cruza Abastecimentos (Abastece+), Pedágios e Multas.</li>
+          </ul>
+        </div>
+
+        <div class="panel wire-card">
+          <span class="badge-step">Etapa 2 · Motor Katu</span>
+          <h2>Diagnóstico Automático</h2>
+          <div class="sub">Identificação de Ineficiência</div>
+          <ul class="flow-list">
+            <li>Identifica tempo parado com motor ligado e quedas de rendimento no trecho.</li>
+            <li>Consolida os desvios antes da Análise Financeira da Frota.</li>
+          </ul>
+        </div>
+
+        <div class="panel wire-card">
+          <span class="badge-step">Etapa 3 · Saída Executiva</span>
+          <h2>Calculadora CFO &amp; Ação</h2>
+          <div class="sub">Alimentação sem Planilhas</div>
+          <ul class="flow-list">
+            <li>Alimenta a <strong>Visão Executiva</strong> com indicadores consistentes.</li>
+            <li>Apoia ações práticas de redução de custo operacional.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="note">
+      <span class="dot"></span> Challenge FIAP x Sem Parar · KATU Fleet Intelligence
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
