@@ -1,4 +1,4 @@
-const dadosTelemetriaCSV = {
+const dadosTelemetriaPadrao = {
   origem: "Log Real OBD-II (ELM327)",
   arquivo: "2026-11-09 10-40-15.csv",
   duracao_min: "9,75",
@@ -24,5 +24,15 @@ function carregarTelemetriaNaTela(dados) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  carregarTelemetriaNaTela(dadosTelemetriaCSV);
+  carregarTelemetriaNaTela(dadosTelemetriaPadrao);
+
+  fetch("./telemetria_obd.json")
+    .then(response => (response.ok ? response.json() : null))
+    .then(dadosExternos => {
+      if (dadosExternos && typeof dadosExternos === "object") {
+        carregarTelemetriaNaTela({ ...dadosTelemetriaPadrao, ...dadosExternos });
+      }
+    })
+    .catch(() => {
+    });
 });
