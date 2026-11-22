@@ -1,6 +1,6 @@
 const dadosTelemetriaPadrao = {
   origem: "Log Real OBD-II (ELM327)",
-  arquivo: "2026-11-09 10-40-15.csv",
+  arquivo: "log_obd2_2026-11-09_10-40-15.csv",
   duracao_min: "9,75",
   distancia_km: "1,01",
   combustivel_usado_l: "0,30",
