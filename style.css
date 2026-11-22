@@ -173,13 +173,9 @@ header.top .meta {
     font-weight: 600;
 }
 
-.delta .up {
-    color: var(--teal);
-}
+.delta.up { color: var(--teal); }
 
-.delta.dow {
-    color: var(--rust);
-}
+.delta.down { color: var(--rust); }
 
 .panels {
     display: grid;
